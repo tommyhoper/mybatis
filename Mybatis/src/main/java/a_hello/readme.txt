@@ -15,4 +15,16 @@
 			private Date birthday;
 			private Double money;
 	}
-4.	
+4.	检查代码段
+    xml错误
+    1.   s.delete("d_dao.UserMapper.delete",1); 代码中的d_dao位置
+    2.   usermapper.xml    namespace="d_dao.UserMapper"  位置
+    3.    usermapper.xml    parameterType="User" 参数位置
+     4.  maybatis-config.xml  <typeAliases>
+		                     <package name="d_dao"/>
+	                          </typeAliases>   
+	  5. maybatis-config.xml
+	   <mappers>
+		<!-- 注意，以下路径中使用的是"/"隔开目录，而不是"."  -->
+		<mapper resource="d_dao/UserMapper.xml"/>
+	   </mappers>                          
